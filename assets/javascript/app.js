@@ -18,7 +18,6 @@ $(document).ready(function() {
 
 
 
-
          //create questions section
             var preguntas = [{
                     question: "Which album sold more records? 'Jagged Little Pill' or  'Spice'?",
@@ -68,14 +67,14 @@ $(document).ready(function() {
             }];
    
                       // for loop to display all questions               
-                    for (var i = 0; 1 < preguntas.length; i++) {
+                    for (var i = 0; i < preguntas.length; i++) {
 
-                    console.log(preguntas.question[i] + preguntas.answer[i]);
-                    console.log( preguntas.question[i] + " Correct answer = " + preguntas[i].correct);
+                    console.log(preguntas[i].question + preguntas[i].answer);
+                    console.log( preguntas[i].question + " Correct answer = " + preguntas[i].correct);
                     
                     } //close for loop
         
-                    var TriviaQuestions = (preguntas.question[i] + preguntas.answer[i]);
+                    // var TriviaQuestions = (preguntas[i].question + preguntas[i].answer);
                     //correct
                     var correct=0;
 
@@ -89,7 +88,7 @@ $(document).ready(function() {
                     incorrect++;
                     }
                     // Unanswered
-                    var noanswer = (10 - (answered + incorrect));
+                    var noanswer = (10 - (correct + incorrect));
 
                     // Results Screen
                     function results(){
@@ -136,13 +135,13 @@ $(document).ready(function() {
                               
                          }} //close startTrivia
 
-
-                         
 // close button and start questions on click
-startScreen(); // run the instruc.
+
 $("#start").on("click","#start",(function(event) {          
-    $("#sub-wrapper").fadeOut();
-    $("#start").fadeOut();
+
+    startScreen(); // run the instruc.
+    // $("#sub-wrapper").fadeOut();
+    // $("#start").fadeOut();
   $("#quiz-Area").append(TriviaQuestions);
       
 startTrivia();
